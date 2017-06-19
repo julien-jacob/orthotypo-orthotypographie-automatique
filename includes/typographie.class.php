@@ -2,6 +2,9 @@
 require 'typographie-settings.class.php';
 require 'typographie-admin.class.php';
 
+/**
+ * Main class of Typographie plugin
+ */
 class typographie
 {
     protected $plugin_name;
@@ -10,6 +13,9 @@ class typographie
     public $settings;
     public $admin;
 
+    /**
+     * Constructor
+     */
     function __construct()
     {
         $this->plugin_name    = 'typographie';
@@ -21,6 +27,9 @@ class typographie
         $this->add_filters();
     }
 
+    /**
+     * Read filter who's user write in WordPress admin
+     */
     public function add_filters() {
 
         if ( '' != $this->settings->get( 'global-filters' ) ) {
@@ -43,6 +52,11 @@ class typographie
 
     }
 
+    /**
+     * Apply orthotypographie's and debug rules on a text
+     * @param  string $text Text to cloar
+     * @return [type]       Clean text
+     */
     public function clear( $text='' ) {
         $clean_text = '';
         $nbsp = '&nbsp;';
@@ -82,10 +96,18 @@ class typographie
         return $clean_text;
     }
 
+    /**
+     * Getter for $typographie->plugin_name
+     * @return str $typographie->plugin_name
+     */
     public function get_plugin_name() {
         return $this->plugin_name;
     }
 
+    /**
+     * Getter for $typographie->plugin_version
+     * @return str $typographie->plugin_version
+     */
     public function get_plugin_version() {
         return $this->plugin_version;
     }
