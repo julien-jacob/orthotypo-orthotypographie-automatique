@@ -4,10 +4,12 @@ class Typographie_Admin
 {
     protected $typographie;
 
-
+    /**
+     * Constructor
+     * @param object $typographieIn Include main plugin class
+     */
     function __construct( $typographieIn ) {
         $this->typographie = $typographieIn;
-
         $this->init();
     }
 
@@ -65,6 +67,10 @@ class Typographie_Admin
 
     }
 
+    /**
+     * Displayor restrict admin page plugin section
+     * @return [type] [description]
+     */
     public function displayPage() {
         if ( !current_user_can( 'manage_options' ) )  {
             wp_die( __( 'Vous ne pouvez pas administrer ce plugin. Autorisations utilisateur insuffisantes.' ) );
