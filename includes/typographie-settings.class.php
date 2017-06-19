@@ -18,24 +18,24 @@ class Typographie_Settings
         ]
     ];
 
-    function __construct($typographieIn) {
+    function __construct( $typographieIn ) {
         $this->typographie = $typographieIn;
         $this->init();
     }
 
-    public function get($setting) {
+    public function get( $setting ) {
 
-        if ( is_string($setting) && $this->is_setting($setting)) {
+        if ( is_string( $setting ) && $this->is_setting( $setting )) {
             return esc_attr( get_option($setting) );
 
         } elseif (
-            is_array($setting)
-            && count($setting == 2)
-            && is_string($setting[1])
-            && is_string($setting[2])
+            is_array( $setting )
+            && count( $setting == 2 )
+            && is_string( $setting[1] )
+            && is_string( $setting[2] )
         ) {
             $setting_name = $setting[1] . $setting[2];
-            if ($this->is_setting($setting_name)) {
+            if ( $this->is_setting($setting_name) ) {
                 return esc_attr( get_option( $setting_name ) );
             } else {
                 return null;
@@ -54,7 +54,7 @@ class Typographie_Settings
         return $sections_names;
     }
 
-    public function is_section_name($name) {
+    public function is_section_name( $name ) {
         foreach ($this->settings_names as $section_name => $section) {
             if ( $section_name == $name ) {
                 return true;
@@ -63,14 +63,14 @@ class Typographie_Settings
         return false;
     }
 
-    public function get_section($name) {
+    public function get_section( $name ) {
         if ($this->is_section_name($name)) {
             return $this->settings_names[$name];
         }
         return null;
     }
 
-    public function is_setting($is_setting_name) {
+    public function is_setting( $is_setting_name ) {
         foreach ($this->get_settings_names() as $key => $setting_name) {
             if ($is_setting_name == $setting_name) {
                 return true;
@@ -94,7 +94,6 @@ class Typographie_Settings
     }
 
     public function init() {
-
         add_action(
             'admin_init',
             array (
@@ -102,17 +101,14 @@ class Typographie_Settings
                 'register_settings'
             )
         );
-
     }
 
     public function register_settings() {
-
         foreach ($this->settings_names as $section_name => $section) {
             foreach ($section as $key => $settingsName) {
                 register_setting( 'typographie-settings-group', $section_name . '-' . $settingsName );
             }
         }
-
     }
 
 }

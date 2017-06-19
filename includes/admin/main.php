@@ -3,20 +3,15 @@
 /**
  * Provide a admin area view for the plugin
  *
- * This file is used to markup the admin-facing aspects of the plugin.
- *
  * @link       https://wprock/auteurs/julien-jacob
  * @author     Julien JACOB <contact@wprock.fr>
- *
  * @package    Typographie
- * @subpackage Typographie/admin/partials
  */
 
-function checkbox_option_to_checked($checkboxValue) {
-    if ('on' == $checkboxValue)
+function checkbox_option_to_checked( $checkboxValue ) {
+    if ( 'on' == $checkboxValue )
         echo 'checked';
 }
-
 ?>
 
 <div class="typographie-admin">
@@ -35,14 +30,14 @@ function checkbox_option_to_checked($checkboxValue) {
             </h1>
         </div>
 
-
-
+        <?php /*
         <h2 class="nav-tab-wrapper typographie-nav-tab">
             <ul>
                 <li aria-selected="true" href="#tab-options" class="nav-tab nav-tab-active">Options de l'extension</li>
-                <?php /* <li aria-selected="false" href="#tab-memento" class="nav-tab">Rappel des règle de typographie</li> */ ?>
+                <li aria-selected="false" href="#tab-memento" class="nav-tab">Rappel des règle de typographie</li>
             </ul>
         </h2>
+         */ ?>
 
         <div class="box-danger error-js-disable">
             Erreur ! Il semblerait que le <strong>JavaScript</strong> ne fonctionne pas correctement...
@@ -62,11 +57,11 @@ function checkbox_option_to_checked($checkboxValue) {
                     <br/>
                     <div class="indent">
                         <div class="checkbox">
-                            <input type="checkbox" name="rules-nbsp_before" <?php checkbox_option_to_checked(esc_attr( get_option('rules-nbsp_before') )); ?>> Utiliser un espace insécable avant les caractères suivants : <code>:</code>, <code>!</code>, <code>?</code>, <code>;</code>, <code>»</code>.
+                            <input type="checkbox" name="rules-nbsp_before" <?php checkbox_option_to_checked(esc_attr( get_option( 'rules-nbsp_before' ) )); ?>> Utiliser un espace insécable avant les caractères suivants : <code>:</code>, <code>!</code>, <code>?</code>, <code>;</code>, <code>»</code>.
                         </div>
 
                         <div class="checkbox">
-                            <input type="checkbox" name="rules-nbsp_after" <?php checkbox_option_to_checked(esc_attr( get_option('rules-nbsp_after') )); ?>> Utiliser un espace insécable après le caractère suivant : <code>«</code>.
+                            <input type="checkbox" name="rules-nbsp_after" <?php checkbox_option_to_checked(esc_attr( get_option( 'rules-nbsp_after' ) )); ?>> Utiliser un espace insécable après le caractère suivant : <code>«</code>.
                         </div>
                     </div>
                 </div>
@@ -77,7 +72,7 @@ function checkbox_option_to_checked($checkboxValue) {
                     <div class="indent">
                         <p>Les filtres permettent de définir sur quels éléments du site l'extension agira. Vous pouvez retrouver <a href="https://codex.wordpress.org/Plugin_API/Filter_Reference" target="_blank">la liste des filtres disponibles dans le codex WordPress</a>.</p>
                         <div class="indent">
-                            <textarea name="global-filters" rows="8" cols="80"><?php echo esc_attr( get_option('global-filters') ); ?></textarea>
+                            <textarea name="global-filters" rows="8" cols="80"><?php echo esc_attr( get_option( 'global-filters' ) ); ?></textarea>
                         </div>
                     </div>
                 </div>
@@ -90,18 +85,16 @@ function checkbox_option_to_checked($checkboxValue) {
                         <div class="indent">
 
                             <div class="checkbox">
-                                <input type="checkbox" name="debug_options-replace_space_by_underscore" <?php checkbox_option_to_checked(esc_attr( get_option('debug_options-replace_space_by_underscore') )); ?>> Utiliser les tirets bas (underscores <code>_</code>) pour rendre visible les espaces insécables ajoutés par l'extension.
+                                <input type="checkbox" name="debug_options-replace_space_by_underscore" <?php checkbox_option_to_checked(esc_attr( get_option( 'debug_options-replace_space_by_underscore' ) )); ?>> Utiliser les tirets bas (underscores <code>_</code>) pour rendre visible les espaces insécables ajoutés par l'extension.
                             </div>
 
                             <div class="checkbox">
-                                <input type="checkbox" name="debug_options-use_red_color" <?php checkbox_option_to_checked(esc_attr( get_option('debug_options-use_red_color') )); ?>> <strong>Beta - </strong>Colorer les textes traités en rouge.
+                                <input type="checkbox" name="debug_options-use_red_color" <?php checkbox_option_to_checked(esc_attr( get_option( 'debug_options-use_red_color' ) )); ?>> <strong>Beta - </strong>Colorer les textes traités en rouge.
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
-
-                <hr/>
 
                 <div class="admin-part">
                     <?php submit_button();?>
@@ -110,13 +103,12 @@ function checkbox_option_to_checked($checkboxValue) {
 
         </form>
 
+        <?php /*
         <div class="admin-tab" id="tab-memento">
-
             <div class="admin-part">
                 <h2 class="title">En cour de rédaction</h2>
             </div>
         </div>
-
-
+         */ ?>
     </div>
 </div>

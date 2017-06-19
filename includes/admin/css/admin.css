@@ -1,22 +1,17 @@
-/**
- * All of the CSS for admin-specific functionality
- */
 
 .typographie-admin h1 small {
     font-size: 14px;
     color: #555555;
 }
 
-
-.typographie-admin .admin-tab {
+/*.typographie-admin .admin-tab {
     display: none;
-}
+}*/
 
 .typographie-admin .nav-tab {
     margin-bottom: -1px;
     cursor: pointer;
 }
-
 
 .box-danger {
     border: 1px red solid;
@@ -26,26 +21,18 @@
     background-color: rgba(255,0,0,.2);
 }
 
-
 .box-success {
     border: 1px green solid;
     border-radius: 4px;
     padding: 10px 15px;
     margin: 15px 0;
     background-color: rgba(0,255,0,.2);
-
 }
 
-.typographie-admin {
-
-}
-
-.typographie-admin .header {
-
-}
+/*.typographie-admin {}*/
+/*.typographie-admin .header {}*/
 
 .typographie-admin .admin-part {
-    /*border: 1px #AAA solid;*/
     padding: 10px 15px;
     margin-bottom: 15px;
 }
@@ -69,9 +56,7 @@
     content: "";
 }
 
-.typographie-admin input[type="checkbox"] {
-
-}
+/*.typographie-admin input[type="checkbox"] {}*/
 
 .typographie-admin .checkbox {
     margin: 10px 0 5px 0;
@@ -81,10 +66,5 @@
     padding-left: 30px;
 }
 
-@media (min-width: 782px) {
-
-}
-
-@media (min-width: 962px) {
-
-}
+/*@media (min-width: 782px) {}*/
+/*@media (min-width: 962px) {}*/

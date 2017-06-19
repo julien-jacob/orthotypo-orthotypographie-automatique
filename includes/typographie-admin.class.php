@@ -5,7 +5,7 @@ class Typographie_Admin
     protected $typographie;
 
 
-    function __construct($typographieIn) {
+    function __construct( $typographieIn ) {
         $this->typographie = $typographieIn;
 
         $this->init();

@@ -6,11 +6,9 @@
         $(".error-js-disable").hide();
     });
 
-
-    // When the window is loaded:
     $( window ).load(function() {
 
-        tabInit();
+        // tabInit();
 
         /**
          * Initialise admin tab and menu
