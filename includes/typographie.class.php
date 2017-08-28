@@ -54,8 +54,8 @@ class typographie
 
 	/**
 	 * Apply orthotypographie's and debug rules on a text
-	 * @param  string $text Text to cloar
-	 * @return [type]	   Clean text
+	 * @param  string	$text Text to cloar
+	 * @return [type]	Clean text
 	 */
 	public function clear( $text='' ) {
 		$clean_text = '';
@@ -90,7 +90,7 @@ class typographie
 			(get_option( 'debug_options-use_red_color' ) == 'on')
 			&& in_array( 'administrator', $current_user->roles )
 		) {
-			$clean_text = '<span style="color: red !important">' . $clean_text . '</span>';
+			$clean_text = '<ins>' . $clean_text . '</ins>';
 		}
 
 		return $clean_text;

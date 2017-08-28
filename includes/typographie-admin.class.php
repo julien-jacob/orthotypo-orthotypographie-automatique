@@ -69,7 +69,6 @@ class Typographie_Admin
 
 	/**
 	 * Displayor restrict admin page plugin section
-	 * @return [type] [description]
 	 */
 	public function displayPage() {
 		if ( !current_user_can( 'manage_options' ) )  {
