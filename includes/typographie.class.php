@@ -40,7 +40,7 @@ class typographie
 			foreach ($setting_customs_filters as $key => $setting_custom_filter) {
 				$setting_custom_filter = trim($setting_custom_filter);
 				if ( ( '' != $setting_custom_filter ) && ( '#' != str_split($setting_custom_filter)[0] ) ) {
-					$customs_filters[count($customs_filters)] = $setting_custom_filter;
+					array_push($customs_filters, $setting_custom_filter);
 				}
 			}
 
@@ -54,7 +54,7 @@ class typographie
 
 	/**
 	 * Apply orthotypographie's and debug rules on a text
-	 * @param  string	$text Text to cloar
+	 * @param  string	$text Text to clear
 	 * @return [type]	Clean text
 	 */
 	public function clear( $text='' ) {
@@ -66,7 +66,7 @@ class typographie
 		get_currentuserinfo();
 
 		if (
-			(get_option( 'debug_options-replace_space_by_underscore' ) == 'on')
+			('on' === get_option( 'debug_options-replace_space_by_underscore' ))
 			&& in_array( 'administrator', $current_user->roles )
 		) {
 			$nbsp = '_';
@@ -76,18 +76,18 @@ class typographie
 		$replacement	= array();
 
 		if (get_option( 'rules-nbsp_before') == 'on' ) {
-			$pattern[count($pattern)]		   = '/[" "](\:|\!|\?|\;|»|&raquo)/';
-			$replacement[count($replacement)]   = $nbsp . '$1';
+			array_push($pattern, '/[" "](\:|\!|\?|\;|»|&raquo)/');
+			array_push($replacement, $nbsp . '$1');
 		}
 
 		if (get_option( 'rules-nbsp_after') == 'on' ) {
-			$pattern[count($pattern)]		   = '/(«|&laquo;)[" "]/';
-			$replacement[count($replacement)]   = '$1' . $nbsp;
+			array_push($pattern, '/(«|&laquo;)[" "]/');
+			array_push($replacement, '$1' . $nbsp);
 		}
 
 		$clean_text = preg_replace($pattern, $replacement, $text);
 		if (
-			(get_option( 'debug_options-use_red_color' ) == 'on')
+			('on' === get_option( 'debug_options-use_red_color' ))
 			&& in_array( 'administrator', $current_user->roles )
 		) {
 			$clean_text = '<ins>' . $clean_text . '</ins>';
