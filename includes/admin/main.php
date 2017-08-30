@@ -9,7 +9,7 @@
  */
 
 function checkbox_option_to_checked( $checkboxValue ) {
-	if ( 'on' == $checkboxValue )
+	if ( 'on' === $checkboxValue )
 		echo 'checked';
 }
 ?>
@@ -34,7 +34,7 @@ function checkbox_option_to_checked( $checkboxValue ) {
 		<h2 class="nav-tab-wrapper typographie-nav-tab">
 			<ul>
 				<li aria-selected="true" href="#tab-options" class="nav-tab nav-tab-active">Options de l'extension</li>
-				<li aria-selected="false" href="#tab-memento" class="nav-tab">Rappel des règle de typographie</li>
+				<li aria-selected="false" href="#tab-memento" class="nav-tab">Rappel des règles de typographie</li>
 			</ul>
 		</h2>
 		 */ ?>

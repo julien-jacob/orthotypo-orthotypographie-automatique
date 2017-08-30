@@ -38,15 +38,9 @@ class Typographie_Admin
 		);
 
 		/**
-		 * Add plugni admin in WordPress admin menu and link this to plugin admin page
+		 * Add plugin admin in WordPress admin menu and link this to plugin admin page
 		 */
-		add_action(
-			'admin_menu',
-			array(
-				$this,
-				'addPage'
-			)
-		);
+		add_action('admin_menu', array( $this, 'addPage' ));
 	}
 
 	/**
@@ -59,16 +53,13 @@ class Typographie_Admin
 			'Typographie',
 			'manage_options',
 			'typographie',
-			array(
-				$this,
-				'displayPage'
-			)
+			array($this, 'displayPage')
 		);
 
 	}
 
 	/**
-	 * Displayor restrict admin page plugin section
+	 * Display or restrict admin page plugin section
 	 */
 	public function displayPage() {
 		if ( !current_user_can( 'manage_options' ) )  {

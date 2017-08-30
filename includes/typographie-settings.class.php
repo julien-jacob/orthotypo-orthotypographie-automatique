@@ -42,7 +42,7 @@ class Typographie_Settings
 
 		} elseif (
 			is_array( $setting )
-			&& count( $setting == 2 )
+			&& (2 == count( $setting ))
 			&& is_string( $setting[1] )
 			&& is_string( $setting[2] )
 		) {
@@ -62,11 +62,7 @@ class Typographie_Settings
 	 */
 	public function get_sections_names() {
 		$sections_names = [];
-
-		foreach ($this->settings_names as $section_name => $section) {
-			$sections_names[count($sections_names)] = $section_name;
-		}
-
+		array_push($sections_names, $this->settings_names);
 		return $sections_names;
 	}
 
@@ -90,10 +86,7 @@ class Typographie_Settings
 	 * @return String	$this->settings_names[$name]
 	 */
 	public function get_section( $name ) {
-		if ($this->is_section_name($name)) {
-			return $this->settings_names[$name];
-		}
-		return null;
+		return ($this->is_section_name( $name )) ? $this->settings_names[ $name ] : null;
 	}
 
 	/**
@@ -118,7 +111,7 @@ class Typographie_Settings
 		$settings_names = [];
 		foreach ($this->settings_names as $section_name => $section) {
 			foreach ($section as $key => $settingsName) {
-				$settings_names[count($settings_names)] = $section_name . '-' . $settingsName;
+				array_push($settings_names, $section_name . '-' . $settingsName);
 			}
 		}
 		return $settings_names;
@@ -136,13 +129,7 @@ class Typographie_Settings
 	 * Add register_settings() to WodPress action
 	 */
 	public function init() {
-		add_action(
-			'admin_init',
-			array (
-				$this,
-				'register_settings'
-			)
-		);
+		add_action( 'admin_init', array ($this, 'register_settings') );
 	}
 
 	/**
