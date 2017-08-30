@@ -24,7 +24,7 @@ function checkbox_option_to_checked( $checkboxValue ) {
 				</strong>
 				<small>
 					<strong>
-						{ Version Alpha }
+						{ Version Beta }
 					</strong>
 				</small>
 			</h1>
@@ -57,11 +57,13 @@ function checkbox_option_to_checked( $checkboxValue ) {
 					<br/>
 					<div class="indent">
 						<div class="checkbox">
-							<input type="checkbox" name="rules-nbsp_before" <?php checkbox_option_to_checked(esc_attr( get_option( 'rules-nbsp_before' ) )); ?>> Utiliser un espace insécable avant les caractères suivants : <code>:</code>, <code>!</code>, <code>?</code>, <code>;</code>, <code>»</code>.
+							<input type="checkbox" name="rules-nbsp_before" id="input-rules-nbsp_before" <?php checkbox_option_to_checked(esc_attr( get_option( 'rules-nbsp_before' ) )); ?>>
+							<label for="input-rules-nbsp_before">Utiliser un espace insécable avant les caractères suivants : <code>:</code>, <code>!</code>, <code>?</code>, <code>;</code>, <code>»</code>.</label>
 						</div>
 
 						<div class="checkbox">
-							<input type="checkbox" name="rules-nbsp_after" <?php checkbox_option_to_checked(esc_attr( get_option( 'rules-nbsp_after' ) )); ?>> Utiliser un espace insécable après le caractère suivant : <code>«</code>.
+							<input type="checkbox" name="rules-nbsp_after" id="input-rules-nbsp_after" <?php checkbox_option_to_checked(esc_attr( get_option( 'rules-nbsp_after' ) )); ?>>
+							<label for="input-rules-nbsp_after">Utiliser un espace insécable après le caractère suivant : <code>«</code>.</label>
 						</div>
 					</div>
 				</div>
@@ -85,11 +87,13 @@ function checkbox_option_to_checked( $checkboxValue ) {
 						<div class="indent">
 
 							<div class="checkbox">
-								<input type="checkbox" name="debug_options-replace_space_by_underscore" <?php checkbox_option_to_checked(esc_attr( get_option( 'debug_options-replace_space_by_underscore' ) )); ?>> Utiliser les tirets bas (underscores <code>_</code>) pour rendre visible les espaces insécables ajoutés par l'extension.
+								<input type="checkbox" name="debug_options-replace_space_by_underscore" id="input-debug_options-replace_space_by_underscore" <?php checkbox_option_to_checked(esc_attr( get_option( 'debug_options-replace_space_by_underscore' ) )); ?>>
+								<label for="input-debug_options-replace_space_by_underscore">Utiliser les tirets bas (underscores <code>_</code>) pour rendre visible les espaces insécables ajoutés par l'extension.</label>
 							</div>
 
 							<div class="checkbox">
-								<input type="checkbox" name="debug_options-use_red_color" <?php checkbox_option_to_checked(esc_attr( get_option( 'debug_options-use_red_color' ) )); ?>> Souligner les textes traités en rouge en utilisant la balise <code>&lt;ins&gt;</code>.
+								<input type="checkbox" name="debug_options-use_red_color" id="input-debug_options-use_red_color" <?php checkbox_option_to_checked(esc_attr( get_option( 'debug_options-use_red_color' ) )); ?>>
+								<label for="input-debug_options-use_red_color">Souligner les textes traités en rouge en utilisant la balise <code>&lt;ins&gt;</code>.</label>
 							</div>
 
 						</div>
