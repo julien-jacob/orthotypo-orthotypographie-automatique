@@ -32,8 +32,8 @@ class Typographie_Settings
 
 	/**
 	 * Getter for plugins settings
-	 * @param  [type] $setting Setting name
-	 * @return [type]		  Value of setting
+	 * @param  String	$setting Setting name
+	 * @return Sring	Value of setting
 	 */
 	public function get( $setting ) {
 
@@ -72,8 +72,8 @@ class Typographie_Settings
 
 	/**
 	 * Return true if $name is a plugin section name
-	 * @param  string $name A string
-	 * @return boolean	  $name is a setting name
+	 * @param  string	$name A string
+	 * @return boolean	$name is a setting name
 	 */
 	public function is_section_name( $name ) {
 		foreach ($this->settings_names as $section_name => $section) {
@@ -86,8 +86,8 @@ class Typographie_Settings
 
 	/**
 	 * Getter for sections
-	 * @param  string $name A section name
-	 * @return [type]	   [description]
+	 * @param  string	$name A section name
+	 * @return String	$this->settings_names[$name]
 	 */
 	public function get_section( $name ) {
 		if ($this->is_section_name($name)) {
@@ -98,7 +98,7 @@ class Typographie_Settings
 
 	/**
 	 * Return true if $is_setting_name is a setting
-	 * @param  string $is_setting_name A string
+	 * @param  string	  $is_setting_name A string
 	 * @return boolean	  $is_setting_name is a setting
 	 */
 	public function is_setting( $is_setting_name ) {
@@ -147,7 +147,6 @@ class Typographie_Settings
 
 	/**
 	 * Register all settings in WordPress
-	 * @return [type] [description]
 	 */
 	public function register_settings() {
 		foreach ($this->settings_names as $section_name => $section) {

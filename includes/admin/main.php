@@ -3,8 +3,8 @@
 /**
  * Provide a admin area view for the plugin
  *
- * @link	   https://wprock/auteurs/julien-jacob
- * @author	 Julien JACOB <contact@wprock.fr>
+ * @link	https://wprock/auteurs/julien-jacob
+ * @author	Julien JACOB <contact@wprock.fr>
  * @package	Typographie
  */
 
@@ -89,7 +89,7 @@ function checkbox_option_to_checked( $checkboxValue ) {
 							</div>
 
 							<div class="checkbox">
-								<input type="checkbox" name="debug_options-use_red_color" <?php checkbox_option_to_checked(esc_attr( get_option( 'debug_options-use_red_color' ) )); ?>> <strong>Beta - </strong>Colorer les textes traités en rouge.
+								<input type="checkbox" name="debug_options-use_red_color" <?php checkbox_option_to_checked(esc_attr( get_option( 'debug_options-use_red_color' ) )); ?>> Souligner les textes traités en rouge en utilisant la balise <code>&lt;ins&gt;</code>.
 							</div>
 
 						</div>
