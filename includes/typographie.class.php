@@ -58,6 +58,11 @@ class typographie
 	 * @return [type]	Clean text
 	 */
 	public function clear( $text='' ) {
+
+		if ( is_admin() ) {
+			return $text;
+		}
+
 		$clean_text = '';
 		$nbsp = '&nbsp;';
 

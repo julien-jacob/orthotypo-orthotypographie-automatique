@@ -27,10 +27,10 @@ _Fonctionnalités_
 * Amélioration des commentaires
 * Amélioration de l'administration : utilisation de label pour les checkbox + texte
 * Nouvelle capture d'écran de l'application
+* N'applique plus les règles dans les pages d'administration et les pages du dashboard.
 * Correction suite à la relecture du code par l'entreprise woonoz (woonoz.com / projet-voltaire.fr)
 ** Suppression de code inutile
 ** Re-factoring de code (array_push(), yoda condition, ...)
-
 
 = 0.0.2 =
 * Ajout et correction des commentaires
