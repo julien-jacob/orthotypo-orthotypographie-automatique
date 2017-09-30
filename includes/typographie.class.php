@@ -19,7 +19,7 @@ class typographie
 	function __construct()
 	{
 		$this->plugin_name	= 'typographie';
-		$this->plugin_version = '0.0.1';
+		$this->plugin_version = '0.0.4';
 
 
 		$this->settings = new Typographie_Settings( $this );

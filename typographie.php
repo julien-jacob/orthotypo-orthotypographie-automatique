@@ -9,7 +9,7 @@
  * Plugin Name: Typographie
  * Plugin URI: https://github.com/julien-ma-jacob/Typographie/
  * Description: Correction d'orthotypographie française
- * Version: 0.0.1
+ * Version: 0.0.4
  * Author: Julien JACOB
  * Author URI: https://twitter.com/wpr0ck
  * License: GPL-2.0+

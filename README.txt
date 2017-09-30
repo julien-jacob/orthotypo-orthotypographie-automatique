@@ -44,7 +44,7 @@ _Fonctionnalités_
 = 0.0.2 =
 * Ajout et correction des commentaires
 
-= 0.0.1 =
+= 0.0.4 =
 * Utiliser un espace insécable avant les caractères suivants : :, !, ?, ;, »
 * Utiliser un espace insécable après le caractère suivant : «
 * Gestion des filtres
