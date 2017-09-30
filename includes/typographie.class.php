@@ -21,10 +21,38 @@ class typographie
 		$this->plugin_name	= 'typographie';
 		$this->plugin_version = '0.0.1';
 
-		$this->settings = new Typographie_Settings( $this );
-		$this->admin	= new Typographie_Admin( $this );
 
-		$this->add_filters();
+		$this->settings = new Typographie_Settings( $this );
+
+		if ( is_admin() ) {
+			$this->admin	= new Typographie_Admin( $this );
+		} else {
+			$this->add_filters();
+
+			add_action( 'plugins_loaded', array($this, 'enqueue_debug_style') );
+		}
+
+
+	}
+
+	public function enqueue_debug_style() {
+
+		if (
+			('on' === get_option( 'debug_options-use_red_color' ))
+			&& in_array( 'administrator', wp_get_current_user()->roles )
+		) {
+			/**
+			 * Enqueue style file for admin page
+			 */
+			wp_enqueue_style(
+				$this->plugin_name,
+				plugin_dir_url( __FILE__ ) . 'css/debug.css',
+				array(),
+				$this->plugin_version,
+				'all'
+			);
+		}
+
 	}
 
 	/**
@@ -59,6 +87,7 @@ class typographie
 	 */
 	public function clear( $text='' ) {
 
+		// don't clear text on WordPress dashboard admin pages
 		if ( is_admin() ) {
 			return $text;
 		}
@@ -67,12 +96,12 @@ class typographie
 		$nbsp = '&nbsp;';
 
 		// Use for user status
-		global $current_user;
-		get_currentuserinfo();
+		// global $current_user;
+		// get_currentuserinfo();
 
 		if (
 			('on' === get_option( 'debug_options-replace_space_by_underscore' ))
-			&& in_array( 'administrator', $current_user->roles )
+			&& in_array( 'administrator', wp_get_current_user()->roles )
 		) {
 			$nbsp = '_';
 		}
@@ -93,7 +122,7 @@ class typographie
 		$clean_text = preg_replace($pattern, $replacement, $text);
 		if (
 			('on' === get_option( 'debug_options-use_red_color' ))
-			&& in_array( 'administrator', $current_user->roles )
+			&& in_array( 'administrator', wp_get_current_user()->roles )
 		) {
 			$clean_text = '<ins>' . $clean_text . '</ins>';
 		}
