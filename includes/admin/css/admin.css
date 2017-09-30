@@ -35,6 +35,10 @@
 	margin-bottom: 15px;
 }
 
+.typographie-admin .typographie-form {
+	border-top: 1px solid #C1C1C1;
+}
+
 .typographie-admin .admin-part h2 {
 	font-size: 20px;
 	font-weight: 600;

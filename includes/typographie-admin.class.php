@@ -10,10 +10,6 @@ class Typographie_Admin
 	 */
 	function __construct( $typographieIn ) {
 		$this->typographie = $typographieIn;
-		$this->init();
-	}
-
-	public function init() {
 
 		/**
 		 * Enqueue style file for admin page
