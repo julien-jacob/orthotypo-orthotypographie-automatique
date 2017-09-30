@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Class who's save plugin setting
  */
@@ -10,6 +9,7 @@ class Typographie_Settings
 	protected $settings_names = [
 		'global' => [
 			'filters',
+			'is_init',
 		],
 		'rules' => [
 			'nbsp_before',
@@ -21,13 +21,54 @@ class Typographie_Settings
 		]
 	];
 
+	protected $default_settings = [
+		'global' => [
+			'filters' => "the_title\nget_the_title\nsingle_post_title\nthe_content\nget_the_content\nthe_excerpt\nget_the_excerpt\ncomment_text",
+			'is_init'=> true,
+		],
+		'rules' => [
+			'nbsp_before' => 'on',
+			'nbsp_after'=> 'on',
+		],
+		'debug_options' => [
+			'replace_space_by_underscore' => '',
+			'use_red_color' => '',
+		]
+	];
+
 	/**
 	 * Constructor
 	 * @param object $typographieIn Include main plugin class
 	 */
 	function __construct( $typographieIn ) {
 		$this->typographie = $typographieIn;
-		$this->init();
+
+		/**
+		 * Add register_settings() to WodPress action
+		 */
+		add_action( 'admin_init', array ($this, 'register_settings') );
+		// var_dump($this->get_settings());
+
+		// var_dump($this->get('global-is_init'));
+
+		if ($this->get('global-is_init') === false) {
+			foreach ($this->default_settings as $section_name => $section) {
+				foreach ($section as $option_sub_name => $value) {
+					update_option($section_name . '-' . $option_sub_name, $value);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Register all settings in WordPress
+	 */
+	public function register_settings() {
+		foreach ($this->settings_names as $section_name => $section) {
+			foreach ($section as $key => $settingsName) {
+				register_setting( 'typographie-settings-group', $section_name . '-' . $settingsName );
+			}
+		}
 	}
 
 	/**
@@ -38,7 +79,7 @@ class Typographie_Settings
 	public function get( $setting ) {
 
 		if ( is_string( $setting ) && $this->is_setting( $setting )) {
-			return esc_attr( get_option($setting) );
+			return get_option($setting);
 
 		} elseif (
 			is_array( $setting )
@@ -48,7 +89,7 @@ class Typographie_Settings
 		) {
 			$setting_name = $setting[1] . $setting[2];
 			if ( $this->is_setting($setting_name) ) {
-				return esc_attr( get_option( $setting_name ) );
+				return get_option( $setting_name );
 			} else {
 				return null;
 			}
@@ -122,25 +163,14 @@ class Typographie_Settings
 	 * @return array $this->settings_names;
 	 */
 	public function get_settings() {
-		return $this->settings_names;
-	}
+		$settings = array();
+		$settings_names = $this->get_settings_names();
 
-	/**
-	 * Add register_settings() to WodPress action
-	 */
-	public function init() {
-		add_action( 'admin_init', array ($this, 'register_settings') );
-	}
-
-	/**
-	 * Register all settings in WordPress
-	 */
-	public function register_settings() {
-		foreach ($this->settings_names as $section_name => $section) {
-			foreach ($section as $key => $settingsName) {
-				register_setting( 'typographie-settings-group', $section_name . '-' . $settingsName );
-			}
+		foreach ($settings_names as $key => $setting_name) {
+			array_push($settings, array('name' => $setting_name, 'value' => $this->get($setting_name)));
 		}
+
+		return $settings;
 	}
 
 }

@@ -43,7 +43,7 @@ function checkbox_option_to_checked( $checkboxValue ) {
 			Erreur ! Il semblerait que le <strong>JavaScript</strong> ne fonctionne pas correctement...
 		</div>
 
-		<form class="" method="post" action="options.php">
+		<form class="typographie-form" method="post" action="options.php">
 
 			<?php
 				settings_fields( 'typographie-settings-group' );
@@ -93,7 +93,7 @@ function checkbox_option_to_checked( $checkboxValue ) {
 
 							<div class="checkbox">
 								<input type="checkbox" name="debug_options-use_red_color" id="input-debug_options-use_red_color" <?php checkbox_option_to_checked(esc_attr( get_option( 'debug_options-use_red_color' ) )); ?>>
-								<label for="input-debug_options-use_red_color">Souligner les textes traités en utilisant la balise <code>&lt;ins&gt;</code>.</label>
+								<label for="input-debug_options-use_red_color">Colorer en rouge les textes traités en utilisant la balise <code>&lt;ins&gt;</code>.</label>
 							</div>
 
 						</div>

@@ -22,6 +22,15 @@ _Fonctionnalités_
 
 == Développement  ==
 
+= 0.0.4 =
+* Fix header plugin
+* Fix typographie->settings->get_settings()
+* Fix admin page : Sauvegarde des options
+* Simplifier les objets
+* Gestion des options par défaut à l'installation de l'extension
+* Optimisation du chargement des ressources
+* Option pour les éditeurs : colorer les textes traités en rouge avec la balise <ins>
+
 = 0.0.3 =
 * Utilisation de tabulations pour l'indentation du code
 * Amélioration des commentaires
@@ -35,7 +44,7 @@ _Fonctionnalités_
 = 0.0.2 =
 * Ajout et correction des commentaires
 
-= 0.0.1 =
+= 0.0.4 =
 * Utiliser un espace insécable avant les caractères suivants : :, !, ?, ;, »
 * Utiliser un espace insécable après le caractère suivant : «
 * Gestion des filtres

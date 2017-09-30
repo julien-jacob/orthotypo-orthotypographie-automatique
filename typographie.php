@@ -1,20 +1,20 @@
 <?php
 
 /**
- * @author	Julien JACOB <contact@wprock.fr>
- * @link	https://twitter.com/wpr0ck
- * @package	Typographie
+ * @author Julien JACOB <contact@wprock.fr>
+ * @link https://twitter.com/wpr0ck
+ * @package Typographie
  *
  * @wordpress-plugin
- * Plugin Name : Typographie
- * Plugin URI  : https://wprock.fr
- * Description : Correction d'orthotypographie française
- * Version     : 0.0.1
- * Author      : Julien JACOB
- * Author URI  : https://twitter.com/wpr0ck
- * License     : GPL-2.0+
- * License URI : http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain : typographie
+ * Plugin Name: Typographie
+ * Plugin URI: https://github.com/julien-ma-jacob/Typographie/
+ * Description: Correction d'orthotypographie française
+ * Version: 0.0.4
+ * Author: Julien JACOB
+ * Author URI: https://twitter.com/wpr0ck
+ * License: GPL-2.0+
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain: typographie
  */
 
 // If this file is called directly, abort.
@@ -33,5 +33,6 @@ require plugin_dir_path( __FILE__ ) . 'includes/typographie.class.php';
  */
 function run_typographie() {
 	$typographie = new Typographie();
+	// var_dump($typographie->settings->get_settings());
 }
 run_typographie();
