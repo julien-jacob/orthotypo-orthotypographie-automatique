@@ -4,9 +4,9 @@
 	color: #555555;
 }
 
-/*.typographie-admin .admin-tab {
+.typographie-admin .admin-tab {
 	display: none;
-}*/
+}
 
 .typographie-admin .nav-tab {
 	margin-bottom: -1px;
@@ -35,9 +35,9 @@
 	margin-bottom: 15px;
 }
 
-.typographie-admin .typographie-form {
+/*.typographie-admin .typographie-form {
 	border-top: 1px solid #C1C1C1;
-}
+}*/
 
 .typographie-admin .admin-part h2 {
 	font-size: 20px;
@@ -49,6 +49,14 @@
 .typographie-admin .admin-part h3 {
 	font-size: 16px;
 	font-weight: 600;
+}
+
+.typographie-admin .admin-part ul {
+	list-style: inside;
+}
+
+.typographie-admin p.submit {
+	border-top: 1px solid #D1D1D1;
 }
 
 .typographie-admin .gadwp-settings-switchoo-inner::after {

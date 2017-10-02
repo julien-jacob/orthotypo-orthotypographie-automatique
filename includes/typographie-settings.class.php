@@ -12,8 +12,18 @@ class Typographie_Settings
 			'is_init',
 		],
 		'rules' => [
-			'nbsp_before',
-			'nbsp_after',
+			'punctuation',
+			'quotation_marks',
+			'percentage',
+			'pleasantries_m',
+			'pleasantries_mme',
+			'pleasantries_mlle',
+			'pleasantries_dr',
+			'pleasantries_pr',
+			'hour',
+			'number_er',
+			'number_nd',
+			'number_e',
 		],
 		'debug_options' => [
 			'replace_space_by_underscore',
@@ -23,18 +33,29 @@ class Typographie_Settings
 
 	protected $default_settings = [
 		'global' => [
-			'filters' => "the_title\nget_the_title\nsingle_post_title\nthe_content\nget_the_content\nthe_excerpt\nget_the_excerpt\ncomment_text",
+			'filters' => "the_title\nget_the_title\nthe_content\nget_the_content\nthe_excerpt\nget_the_excerpt\ncomment_text\ngettext",
 			'is_init'=> true,
 		],
 		'rules' => [
-			'nbsp_before' => 'on',
-			'nbsp_after'=> 'on',
+			'punctuation'		=> 'on',
+			'quotation_marks'	=> 'on',
+			'percentage'		=> 'on',
+			'pleasantries_m'	=> '',
+			'pleasantries_mme'	=> '',
+			'pleasantries_mlle'	=> '',
+			'pleasantries_dr'	=> '',
+			'pleasantries_pr'	=> '',
+			'hour'				=> '',
+			'number_er'			=> '',
+			'number_nd'			=> '',
+			'number_e'			=> '',
 		],
 		'debug_options' => [
 			'replace_space_by_underscore' => '',
 			'use_red_color' => '',
 		]
 	];
+
 
 	/**
 	 * Constructor
@@ -60,6 +81,7 @@ class Typographie_Settings
 		}
 	}
 
+
 	/**
 	 * Register all settings in WordPress
 	 */
@@ -70,6 +92,7 @@ class Typographie_Settings
 			}
 		}
 	}
+
 
 	/**
 	 * Getter for plugins settings
@@ -97,6 +120,7 @@ class Typographie_Settings
 		return null;
 	}
 
+
 	/**
 	 * Return a array of all plugin setting's names and values
 	 * @return array [description]
@@ -106,6 +130,7 @@ class Typographie_Settings
 		array_push($sections_names, $this->settings_names);
 		return $sections_names;
 	}
+
 
 	/**
 	 * Return true if $name is a plugin section name
@@ -121,6 +146,7 @@ class Typographie_Settings
 		return false;
 	}
 
+
 	/**
 	 * Getter for sections
 	 * @param  string	$name A section name
@@ -129,6 +155,7 @@ class Typographie_Settings
 	public function get_section( $name ) {
 		return ($this->is_section_name( $name )) ? $this->settings_names[ $name ] : null;
 	}
+
 
 	/**
 	 * Return true if $is_setting_name is a setting
@@ -144,6 +171,7 @@ class Typographie_Settings
 		return false;
 	}
 
+
 	/**
 	 * Get a array of all settings names
 	 * @return array All settings names
@@ -157,6 +185,7 @@ class Typographie_Settings
 		}
 		return $settings_names;
 	}
+
 
 	/**
 	 * Getter for setting
