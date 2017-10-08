@@ -22,7 +22,23 @@ _Fonctionnalités_
 
 == Développement  ==
 
-= 0.0.4 =
+= 0.1.0 =
+* Ajout de règles
+** Espace insécable pour les pourcentages : remplacer % par _%.
+**  Espaces insécables et abréviations pour monsieur et messieurs : remplacer M.
+** Espaces insécables et abréviations pour madame et mesdames : remplacer Mme et Mmes
+** Espaces insécables et abréviations pour mademoiselle et mesdemoiselles  : remplacer Mlle et Mlles
+** Espaces insécables et abréviations pour docteur et docteurs  : remplacer Dr et Drs
+** Espaces insécables et abréviations pour professeur et professeurs  : remplacer Pr et Prs
+** Abréviations : remplacer 1er et 1re
+** Abréviations : remplacer 2nd et 2de
+** Espaces insécables et abréviations : remplacer 2e,3e, ...
+* Réorganisation des règlobal-filters
+** Gérer les guillemets ouvrantes et fermantes dans la même règle
+* Re-factoring de code
+* Interface des options refaite, ajout d'un système d'onglet 
+
+= 0.1.0 =
 * Fix header plugin
 * Fix typographie->settings->get_settings()
 * Fix admin page : Sauvegarde des options
@@ -44,7 +60,7 @@ _Fonctionnalités_
 = 0.0.2 =
 * Ajout et correction des commentaires
 
-= 0.0.4 =
+= 0.1.0 =
 * Utiliser un espace insécable avant les caractères suivants : :, !, ?, ;, »
 * Utiliser un espace insécable après le caractère suivant : «
 * Gestion des filtres

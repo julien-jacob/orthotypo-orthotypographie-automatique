@@ -8,7 +8,7 @@
 
 	$( window ).load(function() {
 
-		// tabInit();
+		tabInit();
 
 		/**
 		 * Initialise admin tab and menu

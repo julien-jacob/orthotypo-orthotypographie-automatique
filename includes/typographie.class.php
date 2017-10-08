@@ -19,7 +19,7 @@ class typographie
 	function __construct()
 	{
 		$this->plugin_name	= 'typographie';
-		$this->plugin_version = '0.0.4';
+		$this->plugin_version = '0.1.0';
 
 
 		$this->settings = new Typographie_Settings( $this );
@@ -32,8 +32,8 @@ class typographie
 			add_action( 'plugins_loaded', array($this, 'enqueue_debug_style') );
 		}
 
-
 	}
+
 
 	public function enqueue_debug_style() {
 
@@ -77,8 +77,8 @@ class typographie
 			}
 		}
 
-
 	}
+
 
 	/**
 	 * Apply orthotypographie's and debug rules on a text
@@ -87,17 +87,15 @@ class typographie
 	 */
 	public function clear( $text='' ) {
 
-		// don't clear text on WordPress dashboard admin pages
+		// Don't clear text on WordPress dashboard admin pages
 		if ( is_admin() ) {
 			return $text;
 		}
 
-		$clean_text = '';
-		$nbsp = '&nbsp;';
-
-		// Use for user status
-		// global $current_user;
-		// get_currentuserinfo();
+		$pattern		= array();
+		$replacement	= array();
+		$clean_text 	= '';
+		$nbsp 			= '&nbsp;';
 
 		if (
 			('on' === get_option( 'debug_options-replace_space_by_underscore' ))
@@ -106,17 +104,67 @@ class typographie
 			$nbsp = '_';
 		}
 
-		$pattern		= array();
-		$replacement	= array();
 
-		if (get_option( 'rules-nbsp_before') == 'on' ) {
+		if ( 'on' === get_option( 'rules-punctuation') ) {
 			array_push($pattern, '/[" "](\:|\!|\?|\;|»|&raquo)/');
 			array_push($replacement, $nbsp . '$1');
 		}
 
-		if (get_option( 'rules-nbsp_after') == 'on' ) {
+		if ( 'on' === get_option( 'rules-quotation_marks') ) {
+			array_push($pattern, '/[" "](»|&raquo)/');
+			array_push($replacement, $nbsp . '$1');
+
 			array_push($pattern, '/(«|&laquo;)[" "]/');
 			array_push($replacement, '$1' . $nbsp);
+		}
+
+		if ( 'on' === get_option( 'rules-percentage') ) {
+			array_push($pattern, '/([0-9])[" "]%/');
+			array_push($replacement, '$1' . $nbsp . '%');
+		}
+
+		if ( 'on' === get_option( 'rules-pleasantries_m') ) {
+			array_push($pattern, '/(M\.|MM\.)[" "]/');
+			array_push($replacement, '$1' . $nbsp);
+		}
+
+		if ( 'on' === get_option( 'rules-pleasantries_mme') ) {
+			array_push($pattern, '/Mme(s)?[" "]/');
+			array_push($replacement, 'M<sup>me$1</sup>' . $nbsp);
+		}
+
+		if ( 'on' === get_option( 'rules-pleasantries_mlle') ) {
+			array_push($pattern, '/Mlle(s)?[" "]/');
+			array_push($replacement, 'M<sup>lle$1</sup>' . $nbsp);
+		}
+
+		if ( 'on' === get_option( 'rules-pleasantries_dr') ) {
+			array_push($pattern, '/Dr(s)?[" "]/');
+			array_push($replacement, 'D<sup>r$1</sup>' . $nbsp);
+		}
+
+		if ( 'on' === get_option( 'rules-pleasantries_pr') ) {
+			array_push($pattern, '/Pr(s)?[" "]/');
+			array_push($replacement, 'P<sup>r$1</sup>' . $nbsp);
+		}
+
+		// if ( 'on' === get_option( 'rules-hour') ) {
+		//
+		// }
+
+		if ( 'on' === get_option( 'rules-number_er') ) {
+			array_push($pattern, '/1(er|re)/');
+			array_push($replacement, '1<sup>$1</sup>');
+		}
+
+		if ( 'on' === get_option( 'rules-number_nd') ) {
+			array_push($pattern, '/2(nd|de)/');
+			array_push($replacement, '2<sup>$1</sup>');
+		}
+
+		if ( 'on' === get_option( 'rules-number_nd') ) {
+			array_push($pattern, '/([0-9])e/');
+			array_push($replacement, '$1<sup>e</sup>');
 		}
 
 		$clean_text = preg_replace($pattern, $replacement, $text);
@@ -130,6 +178,7 @@ class typographie
 		return $clean_text;
 	}
 
+
 	/**
 	 * Getter for $typographie->plugin_name
 	 * @return str $typographie->plugin_name
@@ -137,6 +186,7 @@ class typographie
 	public function get_plugin_name() {
 		return $this->plugin_name;
 	}
+
 
 	/**
 	 * Getter for $typographie->plugin_version
