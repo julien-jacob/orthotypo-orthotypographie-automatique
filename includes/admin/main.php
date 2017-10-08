@@ -124,18 +124,18 @@ function checkbox_option_to_checked( $checkboxValue ) {
 					<h3>Nombres&nbsp;: adjectifs ordinaux</h3>
 					<div class="indent">
 						<div class="checkbox">
-							<input type="checkbox" name="rules-number-er" id="input-rules-number-er" <?php checkbox_option_to_checked(esc_attr( get_option( 'rules-number-er' ) )); ?>>
-							<label for="input-rules-number-er">Abréviations&nbsp;: remplacer <code>1er</code> et <code>1re</code> en <code>1<sup>er</sup></code> et <code>1<sup>re</sup></code>.</label>
+							<input type="checkbox" name="rules-number_er" id="input-rules-number_er" <?php checkbox_option_to_checked(esc_attr( get_option( 'rules-number_er' ) )); ?>>
+							<label for="input-rules-number_er">Abréviations&nbsp;: remplacer <code>1er</code> et <code>1re</code> en <code>1<sup>er</sup></code> et <code>1<sup>re</sup></code>.</label>
 						</div>
 
 						<div class="checkbox">
-							<input type="checkbox" name="rules-number-nd" id="input-rules-number-nd" <?php checkbox_option_to_checked(esc_attr( get_option( 'rules-number-nd' ) )); ?>>
-							<label for="input-rules-number-nd">Abréviations&nbsp;: remplacer <code>2nd</code> et <code>2de</code> en <code>2<sup>nd</sup></code> et <code>2<sup>de</sup></code>.</label>
+							<input type="checkbox" name="rules-number_nd" id="input-rules-number_nd" <?php checkbox_option_to_checked(esc_attr( get_option( 'rules-number_nd' ) )); ?>>
+							<label for="input-rules-number_nd">Abréviations&nbsp;: remplacer <code>2nd</code> et <code>2de</code> en <code>2<sup>nd</sup></code> et <code>2<sup>de</sup></code>.</label>
 						</div>
 
 						<div class="checkbox">
-							<input type="checkbox" name="rules-number-e" id="input-rules-number-e" <?php checkbox_option_to_checked(esc_attr( get_option( 'rules-number-e' ) )); ?>>
-							<label for="input-rules-number-e">Espaces insécables et abréviations&nbsp;: remplacer <code>2e</code>,<code>3e</code>, ... en <code>2<sup>e</sup></code>, <code>3<sup>e</sup></code>, ...</label>
+							<input type="checkbox" name="rules-number_e" id="input-rules-number_e" <?php checkbox_option_to_checked(esc_attr( get_option( 'rules-number_e' ) )); ?>>
+							<label for="input-rules-number_e">Espaces insécables et abréviations&nbsp;: remplacer <code>2e</code>,<code>3e</code>, ... en <code>2<sup>e</sup></code>, <code>3<sup>e</sup></code>, ...</label>
 						</div>
 					</div>
 
