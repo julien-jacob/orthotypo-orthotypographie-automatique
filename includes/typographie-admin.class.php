@@ -39,6 +39,7 @@ class Typographie_Admin
 		add_action('admin_menu', array( $this, 'addPage' ));
 	}
 
+
 	/**
 	 * Add options page link in WordPress admin menu -> settings width $this->addPage()
 	 * and link this with $this->displayPage()
@@ -51,8 +52,8 @@ class Typographie_Admin
 			'typographie',
 			array($this, 'displayPage')
 		);
-
 	}
+
 
 	/**
 	 * Display or restrict admin page plugin section
