@@ -1,6 +1,8 @@
+![alt text](https://wprock.fr/wp-content/uploads/2018/01/orthotypo-cover-medium.jpg "Couverture de l'extension pour WordPress ORTHOTYPO")
+
 # Orthotypo - L'extension WordPress d'orthotypographie
 
-[Support de l'extension](https://wprock.fr/plugin/orthotypo/#support) | [Page de présentation](https://wprock.fr/plugin/orthotypo/)
+ [Page de présentation](https://wprock.fr/plugin/orthotypo/) | [Support de l'extension](https://wprock.fr/plugin/orthotypo/#support) 
 
 
 ## WordPress, orthotypographie et espaces insécables
