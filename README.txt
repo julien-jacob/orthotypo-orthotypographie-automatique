@@ -1,19 +1,19 @@
-=== Typographie ===
-Tags: typographie, orthotypographie
-Requires at least: 4.0.0
+=== Orthotypo ===
+Tags: orthotypographie, orthographe, français
+Requires at least: 4.9.1
 Tested up to: 4.7
 Stable tag: 4.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Typographie corrige les espaces insécables qui doivent suivre ou précéder certain signes de ponctuation de la langue française.
+Orthotypo corrige les espaces insécables qui doivent suivre ou précéder certain signes de ponctuation de la langue française.
 
 
 == Description ==
 
-# Typographie - Orthotypographie française
+# Orthotypo - Orthotypographie française
 
-Typographie corrige les espaces insécables qui doivent suivre ou précéder certain signes de ponctuation de la langue française.
+Orthotypo corrige les espaces insécables qui doivent suivre ou précéder certain signes de ponctuation de la langue française.
 
 _Fonctionnalités_
 * Utiliser un espace insécable avant les caractères suivants : :, !, ?, ;, »
@@ -36,11 +36,11 @@ _Fonctionnalités_
 * Réorganisation des règlobal-filters
 ** Gérer les guillemets ouvrantes et fermantes dans la même règle
 * Re-factoring de code
-* Interface des options refaite, ajout d'un système d'onglet 
+* Interface des options refaite, ajout d'un système d'onglet
 
 = 0.1.0 =
 * Fix header plugin
-* Fix typographie->settings->get_settings()
+* Fix orthotypo->settings->get_settings()
 * Fix admin page : Sauvegarde des options
 * Simplifier les objets
 * Gestion des options par défaut à l'installation de l'extension

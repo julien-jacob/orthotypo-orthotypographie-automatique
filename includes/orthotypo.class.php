@@ -1,11 +1,11 @@
 <?php
-require 'typographie-settings.class.php';
-require 'typographie-admin.class.php';
+require 'orthotypo-settings.class.php';
+require 'orthotypo-admin.class.php';
 
 /**
- * Main class of Typographie plugin
+ * Main class of Orthotypo plugin
  */
-class typographie
+class orthotypo
 {
 	protected $plugin_name;
 	protected $plugin_version;
@@ -18,14 +18,14 @@ class typographie
 	 */
 	function __construct()
 	{
-		$this->plugin_name	= 'typographie';
+		$this->plugin_name	= 'orthotypo';
 		$this->plugin_version = '0.1.0';
 
 
-		$this->settings = new Typographie_Settings( $this );
+		$this->settings = new Orthotypo_Settings( $this );
 
 		if ( is_admin() ) {
-			$this->admin	= new Typographie_Admin( $this );
+			$this->admin	= new Orthotypo_Admin( $this );
 		} else {
 			$this->add_filters();
 
@@ -81,7 +81,7 @@ class typographie
 
 
 	/**
-	 * Apply orthotypographie's and debug rules on a text
+	 * Apply orthoorthotypo's and debug rules on a text
 	 * @param  string	$text Text to clear
 	 * @return [type]	Clean text
 	 */
@@ -180,8 +180,8 @@ class typographie
 
 
 	/**
-	 * Getter for $typographie->plugin_name
-	 * @return str $typographie->plugin_name
+	 * Getter for $orthotypo->plugin_name
+	 * @return str $orthotypo->plugin_name
 	 */
 	public function get_plugin_name() {
 		return $this->plugin_name;
@@ -189,8 +189,8 @@ class typographie
 
 
 	/**
-	 * Getter for $typographie->plugin_version
-	 * @return str $typographie->plugin_version
+	 * Getter for $orthotypo->plugin_version
+	 * @return str $orthotypo->plugin_version
 	 */
 	public function get_plugin_version() {
 		return $this->plugin_version;
