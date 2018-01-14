@@ -22,7 +22,11 @@ _Fonctionnalités_
 
 == Développement  ==
 
-= 0.1.0 =
+= 0.0.6 =
+* Rennomer le plugin en : Typographie
+* Nétoyer le code et revoir les textes
+
+= 0.0.5 =
 * Ajout de règles
 ** Espace insécable pour les pourcentages : remplacer % par _%.
 **  Espaces insécables et abréviations pour monsieur et messieurs : remplacer M.
@@ -38,7 +42,7 @@ _Fonctionnalités_
 * Re-factoring de code
 * Interface des options refaite, ajout d'un système d'onglet
 
-= 0.1.0 =
+= 0.0.4 =
 * Fix header plugin
 * Fix orthotypo->settings->get_settings()
 * Fix admin page : Sauvegarde des options
