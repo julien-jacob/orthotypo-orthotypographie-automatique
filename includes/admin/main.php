@@ -100,25 +100,6 @@ function checkbox_option_to_checked( $checkboxValue ) {
 					</div>
 
 
-					<?php /*
-					<h3>Heures</h3>
-					<div class="indent">
-						<div class="checkbox">
-							<input type="checkbox" name="rules-hour" id="input-rules-hour" <?php checkbox_option_to_checked(esc_attr( get_option( 'rules-hour' ) )); ?>>
-							<label for="input-rules-hour">Espaces insécables pour les heures : </label>
-							<div class="indent">
-								<ul>
-									<li>remplacer <code>12 h</code> par <code>12_h</code>,</li>
-									<li>remplacer <code>12 h 30</code> par <code>12_h_30</code>,</li>
-									<li>remplacer <code>12 h 30 min</code> par <code>12_h_30_min</code>,</li>
-									<li>remplacer <code>12 h 30 min 30 s</code> par <code>12_h_30_min_30_s</code>.</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					 */ ?>
-
-
 					<h3>Nombres&nbsp;: adjectifs ordinaux</h3>
 					<div class="indent">
 						<div class="checkbox">

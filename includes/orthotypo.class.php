@@ -148,10 +148,6 @@ class orthotypo
 			array_push($replacement, 'P<sup>r$1</sup>' . $nbsp);
 		}
 
-		// if ( 'on' === get_option( 'rules-hour') ) {
-		//
-		// }
-
 		if ( 'on' === get_option( 'rules-number_er') ) {
 			array_push($pattern, '/1(er|re)/');
 			array_push($replacement, '1<sup>$1</sup>');
