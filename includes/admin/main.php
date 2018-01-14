@@ -3,9 +3,7 @@
 /**
  * Provide a admin area view for the plugin
  *
- * @link	https://wprock/auteurs/julien-jacob
- * @author	Julien JACOB <contact@wprock.fr>
- * @package	Typographie
+ * @package	Orthotypo
  */
 
 function checkbox_option_to_checked( $checkboxValue ) {
@@ -14,23 +12,23 @@ function checkbox_option_to_checked( $checkboxValue ) {
 }
 ?>
 
-<div class="typographie-admin">
+<div class="orthotypo-admin">
 	<div class="wrap">
 
 		<div class="header">
 			<h1>
 				<strong>
-					Typographie
+					Orthotypo
 				</strong>
 				<small>
 					<strong>
-						{ Version 0.1.0 Beta }
+						 - Les règles de l'orthotypographie française automatisées
 					</strong>
 				</small>
 			</h1>
 		</div>
 
-		<h2 class="nav-tab-wrapper typographie-nav-tab">
+		<h2 class="nav-tab-wrapper orthotypo-nav-tab">
 			<ul>
 				<li aria-selected="true" href="#tab-options" class="nav-tab nav-tab-active">Règles à appliquer</li>
 				<li aria-selected="false" href="#tab-filters" class="nav-tab">Gestion des filtres</li>
@@ -42,11 +40,11 @@ function checkbox_option_to_checked( $checkboxValue ) {
 			Erreur ! Il semblerait que le <strong>JavaScript</strong> ne fonctionne pas correctement...
 		</div>
 
-		<form class="typographie-form" method="post" action="options.php">
+		<form class="orthotypo-form" method="post" action="options.php">
 
 			<?php
-				settings_fields( 'typographie-settings-group' );
-				do_settings_sections( 'typographie-settings-group' );
+				settings_fields( 'orthotypo-settings-group' );
+				do_settings_sections( 'orthotypo-settings-group' );
 			?>
 
 			<div class="admin-tab" id="tab-options" style="display: block;">
@@ -102,25 +100,6 @@ function checkbox_option_to_checked( $checkboxValue ) {
 					</div>
 
 
-					<?php /*
-					<h3>Heures</h3>
-					<div class="indent">
-						<div class="checkbox">
-							<input type="checkbox" name="rules-hour" id="input-rules-hour" <?php checkbox_option_to_checked(esc_attr( get_option( 'rules-hour' ) )); ?>>
-							<label for="input-rules-hour">Espaces insécables pour les heures : </label>
-							<div class="indent">
-								<ul>
-									<li>remplacer <code>12 h</code> par <code>12_h</code>,</li>
-									<li>remplacer <code>12 h 30</code> par <code>12_h_30</code>,</li>
-									<li>remplacer <code>12 h 30 min</code> par <code>12_h_30_min</code>,</li>
-									<li>remplacer <code>12 h 30 min 30 s</code> par <code>12_h_30_min_30_s</code>.</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					 */ ?>
-
-
 					<h3>Nombres&nbsp;: adjectifs ordinaux</h3>
 					<div class="indent">
 						<div class="checkbox">
@@ -170,11 +149,8 @@ function checkbox_option_to_checked( $checkboxValue ) {
 					</div>
 				</div>
 			</div>
-
 			<?php submit_button();?>
 		</form>
-
-
 
 	</div>
 </div>

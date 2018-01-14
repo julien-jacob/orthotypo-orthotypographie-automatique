@@ -2,9 +2,9 @@
 /**
  * Class who's save plugin setting
  */
-class Typographie_Settings
+class Orthotypo_Settings
 {
-	protected $typographie;
+	protected $orthotypo;
 
 	protected $settings_names = [
 		'global' => [
@@ -20,10 +20,6 @@ class Typographie_Settings
 			'pleasantries_mlle',
 			'pleasantries_dr',
 			'pleasantries_pr',
-			'hour',
-			'number_er',
-			'number_nd',
-			'number_e',
 		],
 		'debug_options' => [
 			'replace_space_by_underscore',
@@ -45,10 +41,6 @@ class Typographie_Settings
 			'pleasantries_mlle'	=> '',
 			'pleasantries_dr'	=> '',
 			'pleasantries_pr'	=> '',
-			'hour'				=> '',
-			'number_er'			=> '',
-			'number_nd'			=> '',
-			'number_e'			=> '',
 		],
 		'debug_options' => [
 			'replace_space_by_underscore' => '',
@@ -59,10 +51,10 @@ class Typographie_Settings
 
 	/**
 	 * Constructor
-	 * @param object $typographieIn Include main plugin class
+	 * @param object $orthotypoIn Include main plugin class
 	 */
-	function __construct( $typographieIn ) {
-		$this->typographie = $typographieIn;
+	function __construct( $orthotypoIn ) {
+		$this->orthotypo = $orthotypoIn;
 
 		/**
 		 * Add register_settings() to WodPress action
@@ -88,7 +80,7 @@ class Typographie_Settings
 	public function register_settings() {
 		foreach ($this->settings_names as $section_name => $section) {
 			foreach ($section as $key => $settingsName) {
-				register_setting( 'typographie-settings-group', $section_name . '-' . $settingsName );
+				register_setting( 'orthotypo-settings-group', $section_name . '-' . $settingsName );
 			}
 		}
 	}
