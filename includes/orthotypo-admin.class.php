@@ -1,24 +1,24 @@
 <?php
 
-class Typographie_Admin
+class Orthotypo_Admin
 {
-	protected $typographie;
+	protected $orthotypo;
 
 	/**
 	 * Constructor
-	 * @param object $typographieIn Include main plugin class
+	 * @param object $orthotypoIn Include main plugin class
 	 */
-	function __construct( $typographieIn ) {
-		$this->typographie = $typographieIn;
+	function __construct( $orthotypoIn ) {
+		$this->orthotypo = $orthotypoIn;
 
 		/**
 		 * Enqueue style file for admin page
 		 */
 		wp_enqueue_style(
-			$this->typographie->get_plugin_name(),
+			$this->orthotypo->get_plugin_name(),
 			plugin_dir_url( __FILE__ ) . 'admin/css/admin.css',
 			array(),
-			$this->typographie->get_plugin_version(),
+			$this->orthotypo->get_plugin_version(),
 			'all'
 		);
 
@@ -26,10 +26,10 @@ class Typographie_Admin
 		 * Enqueue JS script file for admin page
 		 */
 		wp_enqueue_script(
-			$this->typographie->get_plugin_name(),
+			$this->orthotypo->get_plugin_name(),
 			plugin_dir_url( __FILE__ ) . 'admin/js/admin.js',
 			array( 'jquery' ),
-			$this->typographie->get_plugin_version(),
+			$this->orthotypo->get_plugin_version(),
 			false
 		);
 
@@ -46,10 +46,10 @@ class Typographie_Admin
 	 */
 	public function addPage() {
 		add_options_page(
-			'Typographie - Options du plugin',
-			'Typographie',
+			'Orthotypo - Options du plugin',
+			'Orthotypo',
 			'manage_options',
-			'typographie',
+			'orthotypo',
 			array($this, 'displayPage')
 		);
 	}
