@@ -1,7 +1,4 @@
 <?php
-/**
- * Class who's save plugin setting
- */
 class Orthotypo_Settings
 {
 	protected $orthotypo;
@@ -60,9 +57,6 @@ class Orthotypo_Settings
 		 * Add register_settings() to WodPress action
 		 */
 		add_action( 'admin_init', array ($this, 'register_settings') );
-		// var_dump($this->get_settings());
-
-		// var_dump($this->get('global-is_init'));
 
 		if ($this->get('global-is_init') === false) {
 			foreach ($this->default_settings as $section_name => $section) {
