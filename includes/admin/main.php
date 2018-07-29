@@ -36,9 +36,11 @@ function orthotypo_checkbox_option_to_checked( $checkboxValue ) {
 			</ul>
 		</h2>
 
-		<div class="box-danger error-js-disable">
-			Erreur ! Il semblerait que le <strong>JavaScript</strong> ne fonctionne pas correctement...
-		</div>
+		<noscript>
+			<div class="box-danger error-js-disable">
+				Erreur ! Il semblerait que le <strong>JavaScript</strong> ne fonctionne pas correctement...
+			</div>
+		</noscript>
 
 		<form class="orthotypo-form" method="post" action="options.php">
 

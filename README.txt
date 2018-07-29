@@ -19,11 +19,14 @@ Pour ce faire, elle automatise l’ajout des espaces insécables qui doivent sui
 En plus de l’ajout automatisé d’espaces insécables, l’extension propose d’automatiser simplement un ensemble de règles de l’orthotypographie française, comme la correction des civilités (M., MM., Mme, Mmes,Mlle, Mlles, Dr, Drs, Pr, Prs) et les adjectifs ordinaux(1re, 1er, 2nd, 2de, 2e, 3e, ...). Chacune d’entre elles peut être activée ou désactivée facilement depuis les options du plugin.
 
 
+== Changelog ==
 
-== Développement  ==
+= 1.0.1 =
+* Correction des sauvegardes d'options sur les nombres
+* Amelioration de l'alerte NO JS dans l'administration
 
 = 1.0.0 =
-* amelioration globale en vue de la publication
+* Amelioration globale en vue de la publication
 * Nouvelle interface d'administration des options de l'extension
 
 = 0.6.0 =
@@ -33,7 +36,7 @@ En plus de l’ajout automatisé d’espaces insécables, l’extension propose 
 = 0.0.5 =
 * Ajout de règles
 ** Espace insécable pour les pourcentages : remplacer % par _%.
-**  Espaces insécables et abréviations pour monsieur et messieurs : remplacer M.
+** Espaces insécables et abréviations pour monsieur et messieurs : remplacer M.
 ** Espaces insécables et abréviations pour madame et mesdames : remplacer Mme et Mmes
 ** Espaces insécables et abréviations pour mademoiselle et mesdemoiselles  : remplacer Mlle et Mlles
 ** Espaces insécables et abréviations pour docteur et docteurs  : remplacer Dr et Drs

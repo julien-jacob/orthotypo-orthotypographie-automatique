@@ -17,6 +17,9 @@ class Orthotypo_Settings
 			'pleasantries_mlle',
 			'pleasantries_dr',
 			'pleasantries_pr',
+			'number_er',
+			'number_nd',
+			'number_e',
 		],
 		'debug_options' => [
 			'replace_space_by_underscore',
@@ -38,6 +41,9 @@ class Orthotypo_Settings
 			'pleasantries_mlle'	=> '',
 			'pleasantries_dr'	=> '',
 			'pleasantries_pr'	=> '',
+			'number_er'	=> '',
+			'number_nd'	=> '',
+			'number_e'	=> '',
 		],
 		'debug_options' => [
 			'replace_space_by_underscore' => '',
