@@ -9,6 +9,7 @@ class Orthotypo_Admin
 	 * @param object $orthotypoIn Include main plugin class
 	 */
 	function __construct( $orthotypoIn ) {
+
 		$this->orthotypo = $orthotypoIn;
 
 		/**
@@ -36,7 +37,7 @@ class Orthotypo_Admin
 		/**
 		 * Add plugin admin in WordPress admin menu and link this to plugin admin page
 		 */
-		add_action('admin_menu', array( $this, 'addPage' ));
+		add_action( 'admin_menu', array( $this, 'addPage' ) );
 	}
 
 
@@ -50,7 +51,7 @@ class Orthotypo_Admin
 			'Orthotypo',
 			'manage_options',
 			'orthotypo',
-			array($this, 'displayPage')
+			array( $this, 'displayPage' )
 		);
 	}
 
@@ -59,8 +60,8 @@ class Orthotypo_Admin
 	 * Display or restrict admin page plugin section
 	 */
 	public function displayPage() {
-		if ( !current_user_can( 'manage_options' ) )  {
-			wp_die( __( 'Vous ne pouvez pas administrer ce plugin. Autorisations utilisateur insuffisantes.' ) );
+		if ( ! current_user_can( 'manage_options' ) )  {
+			wp_die( 'Vous ne pouvez pas administrer ce plugin. Autorisations utilisateur insuffisantes.' );
 		}
 		require 'admin/main.php';
 	}

@@ -1,25 +1,30 @@
 === Orthotypo ===
 Tags: orthotypographie, orthographe, français
-Requires at least: 4.9.2
-Tested up to: 4.9.2
+Requires at least: 4.9
+Tested up to: 4.9.8
 Stable tag: 4.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-_This plugin is for french typographical syntax_
 Orthotypo corrige les espaces insécables qui doivent suivre ou précéder certain signes de ponctuation de la langue française.
 
-
 == Description ==
+
+_This plugin is for french typographical syntax_
 
 La fonctionnalité principale de cette extension WordPress est d’éliminer les signes de ponctuation orphelins qui se retrouvent seuls en début d’une nouvelle ligne.
 
 Pour ce faire, elle automatise l’ajout des espaces insécables qui doivent suivre ou précéder certains signes de ponctuation et symboles comme les points d’exclamation (!), les points interrogation (?), les symboles de pourcentage (%) ou encore les guillemets (« , »).
 
-En plus de l’ajout automatisé d’espaces insécables, l’extension propose d’automatiser simplement un ensemble de règles de l’orthotypographie française, comme la correction des civilités (M., MM., Mme, Mmes,Mlle, Mlles, Dr, Drs, Pr, Prs) et les adjectifs ordinaux(1re, 1er, 2nd, 2de, 2e, 3e, ...). Chacune d’entre elles peut être activée ou désactivée facilement depuis les options du plugin.
-
+En plus de l’ajout automatisé d’espaces insécables, l’extension propose d’automatiser simplement un ensemble de règles de l’orthotypographie française, comme la correction des civilités (M., MM., Mme, Mmes,Mlle, Mlles, Dr, Drs, Pr, Prs) et les adjectifs ordinaux(1er, 1ers, 2nd, 2nds, 2de, 2des, 2e, 2es, 3e, 3es, ...). Chacune d’entre elles peut être activée ou désactivée facilement depuis les options du plugin.
 
 == Changelog ==
+
+= 1.0.2 =
+* Ajout de la gestion des adjectifs ordinaux aux pluriels
+* Protection des dossiers contre le listing
+* Utilisation de array() pour une meilleur compatibilité PHP
+* N'appliquer le règle que si la langue du site est française
 
 = 1.0.1 =
 * Correction des sauvegardes d'options sur les nombres
