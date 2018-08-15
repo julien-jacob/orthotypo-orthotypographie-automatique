@@ -58,21 +58,28 @@ class orthotypo
 	 */
 	public function add_filters() {
 
-		if ( '' != $this->settings->get( 'global-filters' ) ) {
 
-			$setting_customs_filters = explode( "\n", $this->settings->get( 'global-filters' ));
-			$customs_filters = [];
+		if (
+			is_admin() // Don't clear text on WordPress dashboard admin pages
+			|| false === strpos( get_locale(), 'fr' ) // Check if languague html attribute is french
+			|| empty( $this->settings->get( 'global-filters' ) ) // Check if global filter is not empty
+		) {
+			return;
+		}
 
-			foreach ($setting_customs_filters as $key => $setting_custom_filter) {
-				$setting_custom_filter = trim($setting_custom_filter);
-				if ( ( '' != $setting_custom_filter ) && ( '#' != str_split($setting_custom_filter)[0] ) ) {
-					array_push($customs_filters, $setting_custom_filter);
-				}
+		$setting_customs_filters = explode( "\n", $this->settings->get( 'global-filters' ));
+		$customs_filters = [];
+
+		foreach ( $setting_customs_filters as $key => $setting_custom_filter ) {
+			$setting_custom_filter = trim( $setting_custom_filter );
+			// Get the filter if le line is not empty and if it's not a comment (don't start with #)
+			if ( ( '' != $setting_custom_filter ) && ( '#' != str_split($setting_custom_filter)[0] ) ) {
+				array_push($customs_filters, $setting_custom_filter);
 			}
+		}
 
-			foreach ($customs_filters as $key => $custom_filter) {
-				add_filter( $custom_filter, array( $this, 'clear' ), 10, 2 );
-			}
+		foreach ( $customs_filters as $key => $custom_filter ) {
+			add_filter( $custom_filter, array( $this, 'clear' ) );
 		}
 
 	}
@@ -85,8 +92,7 @@ class orthotypo
 	 */
 	public function clear( $text = '' ) {
 
-		// Don't clear text on WordPress dashboard admin pages
-		if ( is_admin() ) {
+		if ( ! isset( $text ) || empty( $text ) ) {
 			return $text;
 		}
 
@@ -101,7 +107,6 @@ class orthotypo
 		) {
 			$nbsp = '_';
 		}
-
 
 		if ( 'on' === get_option( 'rules-punctuation') ) {
 			array_push( $pattern, '/[" "](\:|\!|\?|\;|»|&raquo)/' );

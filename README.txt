@@ -6,9 +6,7 @@ Stable tag: 4.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-
 Orthotypo corrige les espaces insécables qui doivent suivre ou précéder certain signes de ponctuation de la langue française.
-
 
 == Description ==
 
@@ -20,13 +18,13 @@ Pour ce faire, elle automatise l’ajout des espaces insécables qui doivent sui
 
 En plus de l’ajout automatisé d’espaces insécables, l’extension propose d’automatiser simplement un ensemble de règles de l’orthotypographie française, comme la correction des civilités (M., MM., Mme, Mmes,Mlle, Mlles, Dr, Drs, Pr, Prs) et les adjectifs ordinaux(1er, 1ers, 2nd, 2nds, 2de, 2des, 2e, 2es, 3e, 3es, ...). Chacune d’entre elles peut être activée ou désactivée facilement depuis les options du plugin.
 
-
 == Changelog ==
 
 = 1.0.2 =
 * Ajout de la gestion des adjectifs ordinaux aux pluriels
 * Protection des dossiers contre le listing
 * Utilisation de array() pour une meilleur compatibilité PHP
+* N'appliquer le règle que si la langue du site est française
 
 = 1.0.1 =
 * Correction des sauvegardes d'options sur les nombres
