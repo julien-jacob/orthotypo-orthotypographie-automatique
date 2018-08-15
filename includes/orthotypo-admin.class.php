@@ -38,6 +38,9 @@ class Orthotypo_Admin
 		 * Add plugin admin in WordPress admin menu and link this to plugin admin page
 		 */
 		add_action( 'admin_menu', array( $this, 'addPage' ) );
+
+		// Add a link to plugin's options page on plugin exerpt
+		add_filter( "plugin_action_links_orthotypo-orthotypographie-automatique/orthotypo.php", array( $this, 'plugin_add_settings_link' ) );
 	}
 
 
@@ -53,6 +56,16 @@ class Orthotypo_Admin
 			'orthotypo',
 			array( $this, 'displayPage' )
 		);
+	}
+
+
+	/**
+	 * Add a link to plugin's options page on plugin exerpt
+	 * @param array $links
+	 */
+	public function plugin_add_settings_link ( $links ) {
+		//var_dump($links); die;
+		return array_merge( $links, array( '<a href="' . admin_url( 'options-general.php?page=orthotypo' ) . '">Options</a>' ) );
 	}
 
 

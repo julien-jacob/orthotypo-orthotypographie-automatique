@@ -18,6 +18,7 @@ class orthotypo
 	 * Constructor
 	 */
 	function __construct() {
+
 		$this->plugin_name		= 'orthotypo';
 		$this->plugin_version 	= '1.0.2';
 
@@ -31,6 +32,7 @@ class orthotypo
 		}
 
 	}
+
 
 	/**
 	 * Enqueue the style css file if "debug_options-use_red_color" option is true and if is an administrator

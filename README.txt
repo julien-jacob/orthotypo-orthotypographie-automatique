@@ -20,6 +20,10 @@ En plus de l’ajout automatisé d’espaces insécables, l’extension propose 
 
 == Changelog ==
 
+= 1.0.3 =
+* Ajout d'un lien vers les options sur la page qui liste les plugins
+* Correction du fichier readme.txt 
+
 = 1.0.2 =
 * Ajout de la gestion des adjectifs ordinaux aux pluriels
 * Protection des dossiers contre le listing
