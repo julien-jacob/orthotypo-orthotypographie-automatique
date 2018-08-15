@@ -1,4 +1,5 @@
 <?php
+
 require 'orthotypo-settings.class.php';
 require 'orthotypo-admin.class.php';
 
@@ -16,34 +17,31 @@ class orthotypo
 	/**
 	 * Constructor
 	 */
-	function __construct()
-	{
-		$this->plugin_name	= 'orthotypo';
-		$this->plugin_version = '0.1.0';
-
+	function __construct() {
+		$this->plugin_name		= 'orthotypo';
+		$this->plugin_version 	= '1.0.2';
 
 		$this->settings = new Orthotypo_Settings( $this );
 
 		if ( is_admin() ) {
-			$this->admin	= new Orthotypo_Admin( $this );
+			$this->admin = new Orthotypo_Admin( $this );
 		} else {
 			$this->add_filters();
-
 			add_action( 'plugins_loaded', array($this, 'enqueue_debug_style') );
 		}
 
 	}
 
-
+	/**
+	 * Enqueue the style css file if "debug_options-use_red_color" option is true and if is an administrator
+	 */
 	public function enqueue_debug_style() {
 
 		if (
-			('on' === get_option( 'debug_options-use_red_color' ))
+			( 'on' === get_option( 'debug_options-use_red_color' ) )
 			&& in_array( 'administrator', wp_get_current_user()->roles )
 		) {
-			/**
-			 * Enqueue style file for admin page
-			 */
+			// Enqueue style file for admin page
 			wp_enqueue_style(
 				$this->plugin_name,
 				plugin_dir_url( __FILE__ ) . 'css/debug.css',
@@ -83,9 +81,9 @@ class orthotypo
 	/**
 	 * Apply orthoorthotypo's and debug rules on a text
 	 * @param  string	$text Text to clear
-	 * @return [type]	Clean text
+	 * @return string	Clean text
 	 */
-	public function clear( $text='' ) {
+	public function clear( $text = '' ) {
 
 		// Don't clear text on WordPress dashboard admin pages
 		if ( is_admin() ) {
@@ -98,7 +96,7 @@ class orthotypo
 		$nbsp 			= '&nbsp;';
 
 		if (
-			('on' === get_option( 'debug_options-replace_space_by_underscore' ))
+			( 'on' === get_option( 'debug_options-replace_space_by_underscore' ) )
 			&& in_array( 'administrator', wp_get_current_user()->roles )
 		) {
 			$nbsp = '_';
@@ -106,66 +104,67 @@ class orthotypo
 
 
 		if ( 'on' === get_option( 'rules-punctuation') ) {
-			array_push($pattern, '/[" "](\:|\!|\?|\;|»|&raquo)/');
-			array_push($replacement, $nbsp . '$1');
+			array_push( $pattern, '/[" "](\:|\!|\?|\;|»|&raquo)/' );
+			array_push( $replacement, $nbsp . '$1' );
 		}
 
 		if ( 'on' === get_option( 'rules-quotation_marks') ) {
-			array_push($pattern, '/[" "](»|&raquo)/');
-			array_push($replacement, $nbsp . '$1');
+			array_push( $pattern, '/[" "](»|&raquo)/' );
+			array_push( $replacement, $nbsp . '$1' );
 
-			array_push($pattern, '/(«|&laquo;)[" "]/');
-			array_push($replacement, '$1' . $nbsp);
+			array_push( $pattern, '/(«|&laquo;)[" "]/' );
+			array_push( $replacement, '$1' . $nbsp );
 		}
 
-		if ( 'on' === get_option( 'rules-percentage') ) {
-			array_push($pattern, '/([0-9])[" "]%/');
-			array_push($replacement, '$1' . $nbsp . '%');
+		if ( 'on' === get_option( 'rules-percentage' ) ) {
+			array_push( $pattern, '/([0-9])[" "]%/' );
+			array_push( $replacement, '$1' . $nbsp . '%' );
 		}
 
-		if ( 'on' === get_option( 'rules-pleasantries_m') ) {
-			array_push($pattern, '/(M\.|MM\.)[" "]/');
-			array_push($replacement, '$1' . $nbsp);
+		if ( 'on' === get_option( 'rules-pleasantries_m' ) ) {
+			array_push( $pattern, '/(M\.|MM\.)[" "]/' );
+			array_push( $replacement, '$1' . $nbsp );
 		}
 
-		if ( 'on' === get_option( 'rules-pleasantries_mme') ) {
-			array_push($pattern, '/Mme(s)?[" "]/');
-			array_push($replacement, 'M<sup>me$1</sup>' . $nbsp);
+		if ( 'on' === get_option( 'rules-pleasantries_mme' ) ) {
+			array_push( $pattern, '/Mme(s)?[" "]/' );
+			array_push( $replacement, 'M<sup>me$1</sup>' . $nbsp );
 		}
 
-		if ( 'on' === get_option( 'rules-pleasantries_mlle') ) {
-			array_push($pattern, '/Mlle(s)?[" "]/');
-			array_push($replacement, 'M<sup>lle$1</sup>' . $nbsp);
+		if ( 'on' === get_option( 'rules-pleasantries_mlle' ) ) {
+			array_push( $pattern, '/Mlle(s)?[" "]/' );
+			array_push( $replacement, 'M<sup>lle$1</sup>' . $nbsp );
 		}
 
-		if ( 'on' === get_option( 'rules-pleasantries_dr') ) {
-			array_push($pattern, '/Dr(s)?[" "]/');
-			array_push($replacement, 'D<sup>r$1</sup>' . $nbsp);
+		if ( 'on' === get_option( 'rules-pleasantries_dr' ) ) {
+			array_push( $pattern, '/Dr(s)?[" "]/' );
+			array_push( $replacement, 'D<sup>r$1</sup>' . $nbsp );
 		}
 
-		if ( 'on' === get_option( 'rules-pleasantries_pr') ) {
-			array_push($pattern, '/Pr(s)?[" "]/');
-			array_push($replacement, 'P<sup>r$1</sup>' . $nbsp);
+		if ( 'on' === get_option( 'rules-pleasantries_pr' ) ) {
+			array_push( $pattern, '/Pr(s)?[" "]/' );
+			array_push( $replacement, 'P<sup>r$1</sup>' . $nbsp );
 		}
 
-		if ( 'on' === get_option( 'rules-number_er') ) {
-			array_push($pattern, '/1(er|re)/');
-			array_push($replacement, '1<sup>$1</sup>');
+		if ( 'on' === get_option( 'rules-number_er' ) ) {
+			array_push( $pattern, '/1(ers|res|er|re)/' );
+			array_push( $replacement, '1<sup>$1</sup>' );
+		}
+
+		if ( 'on' === get_option( 'rules-number_nd' ) ) {
+			array_push( $pattern, '/2(nds|des|nd|de)/' );
+			array_push( $replacement, '2<sup>$1</sup>' );
 		}
 
 		if ( 'on' === get_option( 'rules-number_nd') ) {
-			array_push($pattern, '/2(nd|de)/');
-			array_push($replacement, '2<sup>$1</sup>');
+			array_push( $pattern, '/([0-9])(es|e)/' );
+			array_push( $replacement, '$1<sup>$2</sup>' );
 		}
 
-		if ( 'on' === get_option( 'rules-number_nd') ) {
-			array_push($pattern, '/([0-9])e/');
-			array_push($replacement, '$1<sup>e</sup>');
-		}
+		$clean_text = preg_replace( $pattern, $replacement, $text );
 
-		$clean_text = preg_replace($pattern, $replacement, $text);
 		if (
-			('on' === get_option( 'debug_options-use_red_color' ))
+			( 'on' === get_option( 'debug_options-use_red_color' ) )
 			&& in_array( 'administrator', wp_get_current_user()->roles )
 		) {
 			$clean_text = '<ins>' . $clean_text . '</ins>';
@@ -177,7 +176,7 @@ class orthotypo
 
 	/**
 	 * Getter for $orthotypo->plugin_name
-	 * @return str $orthotypo->plugin_name
+	 * @return string $orthotypo->plugin_name
 	 */
 	public function get_plugin_name() {
 		return $this->plugin_name;
@@ -186,7 +185,7 @@ class orthotypo
 
 	/**
 	 * Getter for $orthotypo->plugin_version
-	 * @return str $orthotypo->plugin_version
+	 * @return string $orthotypo->plugin_version
 	 */
 	public function get_plugin_version() {
 		return $this->plugin_version;

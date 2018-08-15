@@ -1,14 +1,15 @@
 <?php
+
 class Orthotypo_Settings
 {
 	protected $orthotypo;
 
-	protected $settings_names = [
-		'global' => [
+	protected $settings_names = array(
+		'global' => array(
 			'filters',
 			'is_init',
-		],
-		'rules' => [
+		),
+		'rules' => array(
 			'punctuation',
 			'quotation_marks',
 			'percentage',
@@ -20,19 +21,19 @@ class Orthotypo_Settings
 			'number_er',
 			'number_nd',
 			'number_e',
-		],
-		'debug_options' => [
+		),
+		'debug_options' => array(
 			'replace_space_by_underscore',
 			'use_red_color',
-		]
-	];
+		),
+	);
 
-	protected $default_settings = [
-		'global' => [
-			'filters' => "the_title\nget_the_title\nthe_content\nget_the_content\nthe_excerpt\nget_the_excerpt\ncomment_text\ngettext",
-			'is_init'=> true,
-		],
-		'rules' => [
+	protected $default_settings = array(
+		'global' => array(
+			'filters' 	=> "the_title\nget_the_title\nthe_content\nget_the_content\nthe_excerpt\nget_the_excerpt\ncomment_text\ngettext",
+			'is_init'	=> true,
+		),
+		'rules' => array(
 			'punctuation'		=> 'on',
 			'quotation_marks'	=> 'on',
 			'percentage'		=> 'on',
@@ -41,15 +42,15 @@ class Orthotypo_Settings
 			'pleasantries_mlle'	=> '',
 			'pleasantries_dr'	=> '',
 			'pleasantries_pr'	=> '',
-			'number_er'	=> '',
-			'number_nd'	=> '',
-			'number_e'	=> '',
-		],
-		'debug_options' => [
+			'number_er'			=> '',
+			'number_nd'			=> '',
+			'number_e'			=> '',
+		),
+		'debug_options' => array(
 			'replace_space_by_underscore' => '',
 			'use_red_color' => '',
-		]
-	];
+		),
+	);
 
 
 	/**
@@ -59,15 +60,14 @@ class Orthotypo_Settings
 	function __construct( $orthotypoIn ) {
 		$this->orthotypo = $orthotypoIn;
 
-		/**
-		 * Add register_settings() to WodPress action
-		 */
-		add_action( 'admin_init', array ($this, 'register_settings') );
+		// Add register_settings() to WodPress action
+		add_action( 'admin_init', array ( $this, 'register_settings' ) );
 
-		if ($this->get('global-is_init') === false) {
-			foreach ($this->default_settings as $section_name => $section) {
-				foreach ($section as $option_sub_name => $value) {
-					update_option($section_name . '-' . $option_sub_name, $value);
+		// Use default options if it's the first usage
+		if ( false === $this->get( 'global-is_init' ) ) {
+			foreach ( $this->default_settings as $section_name => $section ) {
+				foreach ( $section as $option_sub_name => $value ) {
+					update_option( $section_name . '-' . $option_sub_name, $value );
 				}
 			}
 		}
@@ -78,8 +78,8 @@ class Orthotypo_Settings
 	 * Register all settings in WordPress
 	 */
 	public function register_settings() {
-		foreach ($this->settings_names as $section_name => $section) {
-			foreach ($section as $key => $settingsName) {
+		foreach ( $this->settings_names as $section_name => $section ) {
+			foreach ( $section as $key => $settingsName ) {
 				register_setting( 'orthotypo-settings-group', $section_name . '-' . $settingsName );
 			}
 		}
@@ -94,16 +94,16 @@ class Orthotypo_Settings
 	public function get( $setting ) {
 
 		if ( is_string( $setting ) && $this->is_setting( $setting )) {
-			return get_option($setting);
+			return get_option( $setting );
 
 		} elseif (
 			is_array( $setting )
-			&& (2 == count( $setting ))
+			&& ( 2 == count( $setting ) )
 			&& is_string( $setting[1] )
 			&& is_string( $setting[2] )
 		) {
 			$setting_name = $setting[1] . $setting[2];
-			if ( $this->is_setting($setting_name) ) {
+			if ( $this->is_setting( $setting_name ) ) {
 				return get_option( $setting_name );
 			} else {
 				return null;
@@ -119,7 +119,7 @@ class Orthotypo_Settings
 	 */
 	public function get_sections_names() {
 		$sections_names = [];
-		array_push($sections_names, $this->settings_names);
+		array_push( $sections_names, $this->settings_names );
 		return $sections_names;
 	}
 
@@ -130,7 +130,7 @@ class Orthotypo_Settings
 	 * @return boolean	$name is a setting name
 	 */
 	public function is_section_name( $name ) {
-		foreach ($this->settings_names as $section_name => $section) {
+		foreach ( $this->settings_names as $section_name => $section ) {
 			if ( $section_name == $name ) {
 				return true;
 			}
@@ -145,7 +145,7 @@ class Orthotypo_Settings
 	 * @return String	$this->settings_names[$name]
 	 */
 	public function get_section( $name ) {
-		return ($this->is_section_name( $name )) ? $this->settings_names[ $name ] : null;
+		return ( $this->is_section_name( $name ) ) ? $this->settings_names[ $name ] : null;
 	}
 
 
@@ -155,8 +155,8 @@ class Orthotypo_Settings
 	 * @return boolean	  $is_setting_name is a setting
 	 */
 	public function is_setting( $is_setting_name ) {
-		foreach ($this->get_settings_names() as $key => $setting_name) {
-			if ($is_setting_name == $setting_name) {
+		foreach ( $this->get_settings_names() as $key => $setting_name ) {
+			if ( $is_setting_name == $setting_name ) {
 				return true;
 			}
 		}
@@ -170,9 +170,9 @@ class Orthotypo_Settings
 	 */
 	public function get_settings_names() {
 		$settings_names = [];
-		foreach ($this->settings_names as $section_name => $section) {
-			foreach ($section as $key => $settingsName) {
-				array_push($settings_names, $section_name . '-' . $settingsName);
+		foreach ( $this->settings_names as $section_name => $section ) {
+			foreach ( $section as $key => $settingsName ) {
+				array_push( $settings_names, $section_name . '-' . $settingsName );
 			}
 		}
 		return $settings_names;
@@ -187,8 +187,8 @@ class Orthotypo_Settings
 		$settings = array();
 		$settings_names = $this->get_settings_names();
 
-		foreach ($settings_names as $key => $setting_name) {
-			array_push($settings, array('name' => $setting_name, 'value' => $this->get($setting_name)));
+		foreach ( $settings_names as $key => $setting_name ) {
+			array_push( $settings, array( 'name' => $setting_name, 'value' => $this->get( $setting_name ) ) );
 		}
 
 		return $settings;
