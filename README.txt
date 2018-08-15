@@ -16,7 +16,7 @@ La fonctionnalité principale de cette extension WordPress est d’éliminer les
 
 Pour ce faire, elle automatise l’ajout des espaces insécables qui doivent suivre ou précéder certains signes de ponctuation et symboles comme les points d’exclamation (!), les points interrogation (?), les symboles de pourcentage (%) ou encore les guillemets (« , »).
 
-En plus de l’ajout automatisé d’espaces insécables, l’extension propose d’automatiser simplement un ensemble de règles de l’orthotypographie française, comme la correction des civilités (M., MM., Mme, Mmes,Mlle, Mlles, Dr, Drs, Pr, Prs) et les adjectifs ordinaux(1er, 1ers, 2nd, 2nds, 2de, 2des, 2e, 2es, 3e, 3es, ...). Chacune d’entre elles peut être activée ou désactivée facilement depuis les options du plugin.
+En plus de l’ajout automatisé d’espaces insécables, l’extension propose d’automatiser simplement un ensemble de règles de l’orthotypographie française, comme la correction des civilités (M., MM., Mme, Mmes, Mlle, Mlles, Dr, Drs, Pr, Prs) et les adjectifs ordinaux(1er, 1ers, 2nd, 2nds, 2de, 2des, 2e, 2es, 3e, 3es, ...). Chacune d’entre elles peut être activée ou désactivée facilement depuis les options du plugin.
 
 == Changelog ==
 
@@ -40,17 +40,17 @@ En plus de l’ajout automatisé d’espaces insécables, l’extension propose 
 
 = 0.0.5 =
 * Ajout de règles
-** Espace insécable pour les pourcentages : remplacer % par _%.
-** Espaces insécables et abréviations pour monsieur et messieurs : remplacer M.
-** Espaces insécables et abréviations pour madame et mesdames : remplacer Mme et Mmes
-** Espaces insécables et abréviations pour mademoiselle et mesdemoiselles  : remplacer Mlle et Mlles
-** Espaces insécables et abréviations pour docteur et docteurs  : remplacer Dr et Drs
-** Espaces insécables et abréviations pour professeur et professeurs  : remplacer Pr et Prs
-** Abréviations : remplacer 1er et 1re
-** Abréviations : remplacer 2nd et 2de
-** Espaces insécables et abréviations : remplacer 2e,3e, ...
+* - Espace insécable pour les pourcentages : remplacer % par _%.
+* - Espaces insécables et abréviations pour monsieur et messieurs : remplacer M.
+* - Espaces insécables et abréviations pour madame et mesdames : remplacer Mme et Mmes
+* - Espaces insécables et abréviations pour mademoiselle et mesdemoiselles  : remplacer Mlle et Mlles
+* - Espaces insécables et abréviations pour docteur et docteurs  : remplacer Dr et Drs
+* - Espaces insécables et abréviations pour professeur et professeurs  : remplacer Pr et Prs
+* - Abréviations : remplacer 1er et 1re
+* - Abréviations : remplacer 2nd et 2de
+* - Espaces insécables et abréviations : remplacer 2e,3e, ...
 * Réorganisation des règlobal-filters
-** Gérer les guillemets ouvrantes et fermantes dans la même règle
+* - Gérer les guillemets ouvrantes et fermantes dans la même règle
 * Re-factoring de code
 * Interface des options refaite, ajout d'un système d'onglet
 
@@ -70,8 +70,8 @@ En plus de l’ajout automatisé d’espaces insécables, l’extension propose 
 * Nouvelle capture d'écran de l'application
 * N'applique plus les règles dans les pages d'administration et les pages du dashboard.
 * Correction suite à la relecture du code par l'entreprise woonoz (woonoz.com / projet-voltaire.fr)
-** Suppression de code inutile
-** Re-factoring de code (array_push(), yoda condition, ...)
+* - Suppression de code inutile
+* - Re-factoring de code (array_push(), yoda condition, ...)
 
 = 0.2.0 =
 * Ajout et correction des commentaires
@@ -81,5 +81,5 @@ En plus de l’ajout automatisé d’espaces insécables, l’extension propose 
 * Utiliser un espace insécable après le caractère suivant : «
 * Gestion des filtres
 * Options pour les éditeurs (pour les administrateur uniquement)
-** Utiliser les tirets bas (underscores _) pour rendre visible les espaces insécables ajoutés par l'extension
-** Beta - Colorer les textes traités en rouge
+* - Utiliser les tirets bas (underscores _) pour rendre visible les espaces insécables ajoutés par l'extension
+* - Beta - Colorer les textes traités en rouge
