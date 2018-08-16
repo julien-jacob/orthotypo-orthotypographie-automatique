@@ -128,9 +128,7 @@ function orthotypo_checkbox_option_to_checked( $checkboxValue ) {
 			<div class="admin-tab" id="tab-filters">
 				<div class="admin-part">
 					<p>Les filtres permettent de définir sur quels éléments du site l'extension agira. Vous pouvez retrouver <a href="https://codex.wordpress.org/Plugin_API/Filter_Reference" target="_blank">la liste des filtres disponibles dans le codex WordPress</a>.</p>
-					<div class="indent">
-						<textarea name="global-filters" rows="8" cols="80"><?php echo esc_attr( get_option( 'global-filters' ) ); ?></textarea>
-					</div>
+					<textarea name="global-filters" rows="8" cols="80"><?php echo esc_attr( get_option( 'global-filters' ) ); ?></textarea>
 				</div>
 			</div>
 
